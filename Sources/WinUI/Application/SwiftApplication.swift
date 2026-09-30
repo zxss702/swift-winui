@@ -43,7 +43,7 @@ open class SwiftApplication: Application, IXamlMetadataProvider {
 
     public static func main() {
         do {
-            try withExtendedLifetime(WindowsAppRuntimeInitializer(threadingModel: .multi)) {
+            try withExtendedLifetime(WindowsAppRuntimeInitializer(threadingModel: .single)) {
                 // What is going on here??!? Is this necessary??
                 let appClass = String(describing: String(reflecting: Self.self))
                 guard let instance = NSClassFromString(appClass) else {
